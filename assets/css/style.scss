@@ -1,0 +1,178 @@
+
+@font-face{
+	font-family: "Aileron-Thin";
+	src: url(../fonts/Aileron-Thin.otf) format("opentype");
+}
+
+@font-face{
+	font-family: "Aileron-Light";
+	src: url(../fonts/Aileron-Light.otf) format("opentype");
+}
+
+@font-face{
+	font-family: "Aileron-UltraLight";
+	src: url(../fonts/Aileron-UltraLight.otf) format("opentype");
+}
+
+*{
+	margin: 0;
+}
+
+@mixin background-image($img-file){
+	background: url($img-file) no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+@mixin transformY($vertical){
+	-webkit-transform: translateY($vertical);
+          transform: translateY($vertical);
+}
+
+@mixin transform($percentage1, $percentage2){
+	-webkit-transform: translate($percentage1, $percentage2);
+          transform: translate($percentage1, $percentage2);
+}
+
+@mixin transformRotate($deg){
+	-webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
+body,html{
+	height: 100%;
+}
+
+body{
+	font-family: "Aileron-Light", sans-serif;
+}
+
+.container{
+	height: 100%;
+
+	.box{
+		height: 100%;
+		color: #fff;
+		text-align: center;
+		position:relative;
+	}
+
+	.boxText{
+		position: relative;
+		border: 3px double white;
+		margin: 0 auto;
+		
+		background: rgba(0,0,0,.5);
+		top: 50%;
+		@include transformY(-50%);
+
+		p:not(.name){
+			font-size: 15px;
+			text-align: center;
+			letter-spacing: 3px;
+		}
+	}
+
+	.name{
+		font-size: 75px;
+		font-family: "Aileron-UltraLight", sans-serif;
+		text-transform: uppercase;
+	}
+
+	.downArrow img{
+		position: absolute;
+		bottom:0;
+		left: 50%;
+		margin: 0;
+		width: 50px;
+		@include transform(-50%, 0);
+	}
+
+	#box1{
+		@include background-image('../images/pluto1.jpg');
+	}
+
+	#box2{
+			@include background-image('../images/neptune2.jpg');
+
+			a{
+				border: 1px solid white;
+				background: none;
+				color: white;
+				font-size: 15px;
+				padding: 10px 5px 10px 10px;
+				letter-spacing: 5px;
+				text-align: center;
+				position: absolute;
+				top: 85%;
+				@include transform(-50%, 0);
+				font-family: "Aileron-Light", sans-serif;
+				cursor: pointer;
+				transition: .5s all ease;
+				text-decoration: none;
+
+				&:hover{
+					background: white;
+					color: #000;
+				}
+			}
+	}
+
+	#box1Text{
+		height: 250px;
+		width: 250px;
+		top: 25%;
+		@include transformRotate(45deg);
+
+		@media screen and(max-width: 400px){
+			width: 200px;
+			height: 200px;
+			.name{
+				font-size: 60px;
+			}
+		}
+	}
+
+	#pluto{
+		position: relative;
+		top: 25%;
+		@include transformRotate(-45deg);
+    	margin-left: -15px;
+
+    	.name{
+			margin-bottom:-10px;
+		}
+
+	}
+
+	#neptune{
+		position: relative;
+		top: 50%;
+		@include transformY(-50%);
+
+		.name{
+			margin-top:-10px;
+		}
+	}
+
+	#box2Text{
+		border: 3px double white;
+		border-radius: 100%;
+		width: 350px;
+		height: 350px;
+		@media screen and(max-width: 400px){
+			width: 300px;
+			height: 300px;
+			.name{
+				font-size: 60px;
+			}
+		}
+	}
+
+}
+
