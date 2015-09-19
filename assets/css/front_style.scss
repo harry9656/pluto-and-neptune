@@ -1,0 +1,350 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:300);
+
+@import "style.scss";
+
+@mixin flexbox {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+@mixin flex-direction($value: row) {
+	@if $value == row-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: horizontal;
+	} @else if $value == column {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: vertical;
+	} @else if $value == column-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: vertical;
+	} @else {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: horizontal;
+	}
+	-webkit-flex-direction: $value;
+	-moz-flex-direction: $value;
+	-ms-flex-direction: $value;
+	flex-direction: $value;
+}
+
+p:last-child{
+	font-size: 15px;
+}
+
+.story{
+	
+	height: 100%;
+	font-family: "Aileron-UltraLight", sans-serif;
+
+	p{
+		margin: 0 auto;
+	}
+	
+}
+
+.title{
+	font-size: 3em;
+	text-transform: uppercase;
+	@media (max-width: 800px){
+		font-size: 2.5em;
+	}
+	@media(max-width: 700px){
+		font-size: 2em;
+	}
+	@media(max-width:600px){
+		font-size: 1.5em;
+		width: 80%;
+	}
+}
+
+#pluto_intro, #neptune_intro{
+	@include flexbox;
+	@include flex-direction(column);
+	text-align:center;
+	position: relative;
+}
+
+.pluto_portrait{
+	@include background-image('../images/pluto3.jpg');
+}
+
+.pluto_info, .neptune_info, .neptune_portrait, .pluto_portrait{
+	height: 50%;
+}
+
+.pluto_info, .neptune_info{
+	color: #fff;
+	background: #000;
+
+
+
+	p:last-child{
+		width: 40%;
+		font-size: 14px;
+		font-family: 'Raleway', sans-serif;
+		margin-top: 10px;
+		line-height: 20px;
+		@media(max-width: 800px){
+			width: 80%;
+			font-size: 12px;
+		}
+		@media(max-width: 600px){
+			width: 95%;
+		}
+	}
+}
+
+.planet_text{
+	position: relative;
+	top: 50%;
+	@include transformY(-50%);
+}
+
+
+
+
+.neptune_portrait{
+	@include background-image('../images/neptune1.jpg');
+}
+
+#close, #always_small, #not_with_planets, #far_from_sun,
+#ignore_uranus{
+	@include flexbox;
+	background: black;
+	@media(max-width:750px){
+		@include flex-direction(column);
+		.neptune_pluto_info, .neptune_pluto_info2, .neptune_pluto_info3, 
+		.neptune_pluto_info4, .neptune_pluto_info5{
+			width: 100%;
+		}
+	}
+}
+
+.neptune_pluto_info, .neptune_pluto_info2, .neptune_pluto_info3, 
+.neptune_pluto_info4{
+	width: 30%;
+	background: #000;
+	color: #fff;
+	text-align: center;
+	padding: 0 10px;
+	position: relative;
+
+
+	p:last-child{
+		margin-top: 10px;
+		font-family: 'Raleway', sans-serif;
+		line-height: 20px;
+		font-size: 14px;
+		@media(max-width: 800px){
+			font-size: 12px;
+			width: 80%;
+		}
+		@media(max-width: 600px){
+			width: 95%;
+		}
+	}
+	.planet_text{
+		-webkit-transform: translateY(60%);
+		@media(max-width:800px){
+			-webkit-transform: translateY(90%);
+		}
+		@media(max-width:500px){
+			-webkit-transform: translateY(300%);
+		}
+	}
+}
+
+.neptune_pluto_info3{
+	.planet_text{
+		@media(max-width:1024px){
+			-webkit-transform: translateY(60%);
+		}
+	}
+}
+
+.neptune_pluto{
+	width: 70%;
+	background: url('../images/pluto_neptune4.jpg') no-repeat center;
+	background-size: 80%;
+	@media(max-width: 800px){
+		width: 100%;
+		height: 50%;
+	}
+}
+
+.neptune_pluto2{
+	@include background-image('../images/pluto_neptune2.jpg');
+	width: 70%;
+	@media(max-width: 800px){
+		width: 100%;
+		height: 50%;
+	}
+}
+
+.neptune_pluto3{
+	@include background-image('../images/pluto_neptune1.jpg');
+	width: 70%;
+	@media(max-width: 800px){
+		width: 100%;
+		height: 50%;
+	}
+}
+
+.neptune_pluto4{
+	@include background-image('../images/pluto_neptune3.jpg');
+	width: 70%;
+	@media(max-width: 800px){
+		width: 100%;
+		height: 50%;
+	}
+}
+
+.neptune_portrait2{
+	width: 40%;
+	background: url('../images/neptune3.jpg') no-repeat center;
+	background-size: 150%;
+	// @include background-image('../images/neptune3.jpg');
+	@media(max-width: 800px){
+		width: 100%;
+		height: 50%;
+	}
+}
+
+.pluto_portrait2{
+	width: 40%;
+	background: url('../images/pluto2.jpg') no-repeat;
+	background-size: 100%;
+	// @include background-image('../images/pluto2.jpg');
+	@media(max-width: 800px){
+		width: 100%;
+		height: 50%;
+	}
+}
+
+.neptune_pluto_info5{
+	color: #fff;
+	background: #000;
+	width: 20%;
+	text-align: center;
+	position: relative;
+
+	p:not(.title){
+		font-size: 25px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		font-family: 'Raleway', sans-serif;
+	}
+
+	p:last-child{
+		text-transform: uppercase;
+		font-size: 15px;
+	}
+	.planet_text{
+		@media(max-width:1024px){
+			-webkit-transform: translateY(60%);
+		}
+		@media(max-width:500px){
+			-webkit-transform: translateY(-20%);
+		}
+	}
+}
+
+hr{
+	width: 20%;
+	margin: 0 auto;
+}
+
+.neptune_pluto_info6{
+
+	p:last-child{
+		width: 60%;
+		font-family: 'Raleway', sans-serif;
+		font-size: 15px;
+		line-height: 20px;
+		
+	}
+
+	.planet_text{
+		@include transformY(170%);
+
+		@media(max-height: 750px){
+			@include transformY(90%);
+		}
+		@media(max-height: 670px){
+			@include transformY(50%);
+		}
+		@media(max-width:650px){
+			p:last-child{
+				width: 95%;
+				font-size: 12px;
+			}
+		}
+		
+
+	}
+}
+
+#conclusion{
+	background: black;
+	color: white;
+	text-align: center;
+	position: relative;
+}
+
+#video{
+	position: relative;
+}
+
+.the_end{
+	position: absolute;
+	color: white;
+	bottom: 40%;
+	right: 20%;
+	font-size: 50px;
+
+	a{
+		margin-top: 15px;
+		@include transform(8%, 0);
+		letter-spacing: 4px;
+
+		border: 1px solid white;
+		background: none;
+		color: white;
+		font-size: 15px;
+		padding: 10px 5px 10px 10px;
+		letter-spacing: 5px;
+		text-align: center;
+		position: absolute;
+		top: 85%;
+		cursor: pointer;
+		transition: .5s all ease;
+		text-decoration: none;
+
+		&:hover{
+			background: white;
+			color: #000;
+		}
+	}
+
+}
+
+video{
+	position: fixed;
+	top:0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	@include background-image('../video/poster.jpg');
+}
+
+@media(max-width: 600px){
+	.story .downArrow a{
+		display: none;
+	}
+}
