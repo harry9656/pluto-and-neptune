@@ -48,17 +48,13 @@ body {
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0); }
   .container #box1 {
-    background: url("../images/pluto1.jpg") no-repeat center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
+    background:black;
+    }
   .container #box2 {
-    background: url("../images/neptune2.jpg") no-repeat center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
+    background: black;
+    position: relative;
+    overflow: hidden;
+  }
     .container #box2 a {
       border: 1px solid white;
       background: none;
@@ -82,6 +78,7 @@ body {
     height: 250px;
     width: 250px;
     top: 25%;
+    z-index: 2;
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -124,3 +121,38 @@ body {
           font-size: 60px; } }
 
 /*# sourceMappingURL=style.css.map */
+
+/**********************************/
+/**********Parallax****************/
+#plutoSolo {
+  z-index: 1;
+  position: absolute;
+  width: 25%;
+  min-width: 200px;
+  height: auto;
+  top:10%;
+  left: 20%;
+}
+@media screen and (max-width: 400px) {
+  #plutoSolo {
+    left: 5%;
+    min-width: 50%;
+    height: auto;
+  }
+}
+#neptuneBig {
+  position:absolute;
+  width: 50%;
+  min-width: 300px;
+  height: auto;
+  right: 0px;
+  bottom: -350px;
+  right: -350px;
+}
+
+@media screen and (max-width: 400px) {
+  #neptuneBig {
+    min-width: 70%;
+    height: auto;
+  }
+}

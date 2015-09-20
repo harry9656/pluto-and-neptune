@@ -1,4 +1,5 @@
 <section class="box" id="box1" smooth-scroll>
+	<img alt="Pluto Image" src="assets/images/plutoSolo.png" id="plutoSolo">
 	<div class="boxText" id="box1Text">
 		<div id="pluto">
 			<p class="name">Pluto</p>
@@ -10,6 +11,7 @@
 	</div>
 </section>
 <section class="box" id="box2">
+	<img alt="Pluto Image" src="assets/images/neptuneBig.png" id="neptuneBig">
 	<div class="boxText" id="box2Text">
 		<div id="neptune">
 			<p>and his lost friend</p>
@@ -18,3 +20,32 @@
 	</div>
 	<a href="#main">Enter</a>
 </section>
+
+<!-- Parallaxing Here -->
+<script type="text/javascript">
+	$(window).scroll(function(){
+		var wScroll = $(this).scrollTop();
+
+		$("#plutoSolo").css({
+			"transform" : "translateY("+wScroll/1.5+"px)",
+			"-webkit-filter":"blur("+wScroll/50+"px)",
+			"-moz-filter":"blur("+wScroll/50+"px)",
+			"-o-filter":"blur("+wScroll/50+"px)",
+			"-ms-filter":"blur("+wScroll/50+"px)",
+			"filter":"blur("+wScroll/50+"px)"
+		});
+		if(wScroll > $("#box2").offset().top - 700){
+			if(Math.round($("#box2").offset().top - wScroll) >= 0){
+				var bluring = Math.round((($("#box2").offset().top)- wScroll)/25);
+				$("#neptuneBig").css({
+					"transform" : "translate("+-wScroll/2+"px,"+-wScroll/2+"px)",
+					"-webkit-filter":"blur("+bluring+"px)",
+					"-moz-filter":"blur("+bluring+"px)",
+					"-o-filter":"blur("+bluring+"px)",
+					"-ms-filter":"blur("+bluring+"px)",
+					"filter":"blur("+bluring+"px)"
+				}); 
+			}
+		}
+	});
+</script>
